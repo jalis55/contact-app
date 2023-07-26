@@ -4,16 +4,16 @@ class AddContact extends React.Component {
     render() {
         return (
             <form>
-                <div class="form-group row p-4">
-                    <div class="col-xs-3">
-                        <label for="ex2">Name:</label>
-                        <input class="form-control w-25" id="name" type="text" />
+                <div className="form-group row p-4">
+                    <div className="col-xs-3">
+                        <label htmlFor="ex2">Name:</label>
+                        <input className="form-control w-25" id="name" type="text" />
                     </div>
-                    <div class="col-xs-2">
-                        <label for="ex1">Email:</label>
-                        <input class="form-control w-25" id="email" type="text" />
+                    <div className="col-xs-2">
+                        <label htmlFor="ex1">Email:</label>
+                        <input className="form-control w-25" id="email" type="text" />
                     </div>
-                    <div class="col-xs-2">
+                    <div className="col-xs-2">
                     <button className="btn btn-primary mt-1 btn-sm">Add</button>
                     </div>
 
