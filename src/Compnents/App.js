@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './App.css';
 import ContactList from './ContactList';
 import Header from './Header';
 import AddContact from './AddContact';
 function App() {
-  let contacts=[
-    {
-      "id":"1",
-      "name":"Jalis",
-      "email":"jalis@leads.com"
-    },
-    {
-      "id":"2",
-      "name":"Khan",
-      "email":"khan@leads.com"
-    }
-  ]
+
+  const [contacts, setContacts] = useState(() => {
+    const localValue = localStorage.getItem("CONTACTSLIST")
+    if (localValue == null) return []
+    return JSON.parse(localValue)
+  })
+
+  const addContactHandler = (contact) => {
+    setContacts([...contacts, contact])
+  }
+
+
+  useEffect(() => {
+    localStorage.setItem("CONTACTSLIST", JSON.stringify(contacts))
+  }, [contacts])
+
+
+
   return (
     <div className='container'>
-      <Header/>
-      <AddContact/>
-      <ContactList contacts={contacts}/>
+      <Header />
+      <AddContact addContactHandler={addContactHandler} />
+      <ContactList contacts={contacts} />
     </div>
   );
 }
