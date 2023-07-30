@@ -13,7 +13,7 @@ function App() {
   })
 
   const addContactHandler = (contact) => {
-    setContacts([...contacts, {id:uuid(),contact}])
+    setContacts([...contacts, {id:uuid(),...contact}])
   }
   const removeContactHandler=(id)=>{
     const newContacts=contacts.filter((contact)=>{
@@ -33,7 +33,7 @@ function App() {
     <div className='container'>
       <Header />
       <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts}  getContatactId={removeContactHandler}/>
+      <ContactList contacts={contacts}  getContactId={removeContactHandler}/>
     </div>
   );
 }
